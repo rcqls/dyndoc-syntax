@@ -1,0 +1,503 @@
+--- 
+line-numbers: 
+  begin: <span class="line-numbers">
+  end: </span>
+filter: CGI.escapeHTML( @escaped )
+document: 
+  begin: |
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+    <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+    
+    <head>
+      <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+      <meta http-equiv="cache-control" content="no-cache" />
+      <meta http-equiv="expires" content="3600" />
+      <meta name="revisit-after" content="2 days" />
+      <meta name="robots" content="index,follow" />
+      <meta name="publisher" content="Dichodaemon" />
+      <meta name="copyright" content="Dichodaemon" />
+    
+      <meta name="author" content="Dichodaemon" />
+      <meta name="distribution" content="global" />
+      <meta name="description" content="Ocatarinetabellachithchix" />
+      <meta name="keywords" content="arzaversperia flexilimosos toves" />
+      <link rel="stylesheet" type="text/css" media="screen,projection,print" href="css/solarized.css" />
+      <title>solarized</title>
+    
+    </head>
+    
+    <body>
+
+  end: "  <p>\n    <a href=\"http://validator.w3.org/check?uri=referer\">\n      <img style=\"border:0\"\n           src=\"http://www.w3.org/Icons/valid-xhtml10\"\n           alt=\"Valid XHTML 1.0 Strict\" height=\"31\" width=\"88\" />\n    </a>\n    <a href=\"http://jigsaw.w3.org/css-validator/check?uri=referer\">\n      <img style=\"border:0;width:88px;height:31px\"\n           src=\"http://jigsaw.w3.org/css-validator/images/vcss\" \n           alt=\"Valid CSS!\" />\n    </a>\n  </p>\n\
+    </body>\n\
+    </html>\n"
+listing: 
+  begin: <pre class="solarized">
+  end: </pre>
+name: Solarized (light)
+tags: 
+- begin: <span class="Comment">
+  selector: comment
+  end: </span>
+- begin: <span class="String">
+  selector: string
+  end: </span>
+- begin: <span class="Stringnumber">
+  selector: string
+  end: </span>
+- begin: <span class="Regexp">
+  selector: string.regexp
+  end: </span>
+- begin: <span class="Number">
+  selector: constant.numeric
+  end: </span>
+- begin: <span class="Variable">
+  selector: variable.language, variable.other
+  end: </span>
+- begin: <span class="Keyword">
+  selector: keyword
+  end: </span>
+- begin: <span class="Storage">
+  selector: storage
+  end: </span>
+- begin: <span class="ClassName">
+  selector: entity.name.class, entity.name.type.class
+  end: </span>
+- begin: <span class="FunctionName">
+  selector: entity.name.function
+  end: </span>
+- begin: <span class="VariableStart">
+  selector: punctuation.definition.variable
+  end: </span>
+- begin: <span class="EmbeddedCodeMarkers">
+  selector: punctuation.section.embedded.begin, punctuation.section.embedded.end
+  end: </span>
+- begin: <span class="BuiltInConstant">
+  selector: constant.language, meta.preprocessor
+  end: </span>
+- begin: <span class="SupportConstruct">
+  selector: support.function.construct, keyword.other.new
+  end: </span>
+- begin: <span class="UserDefinedConstant">
+  selector: constant.character, constant.other
+  end: </span>
+- begin: <span class="InheritedClass">
+  selector: entity.other.inherited-class
+  end: </span>
+- begin: <span class="FunctionArgument">
+  selector: variable.parameter
+  end: </span>
+- begin: <span class="TagName">
+  selector: entity.name.tag
+  end: </span>
+- begin: <span class="TagStartEnd">
+  selector: punctuation.definition.tag.html, punctuation.definition.tag.begin, punctuation.definition.tag.end
+  end: </span>
+- begin: <span class="TagAttribute">
+  selector: entity.other.attribute-name
+  end: </span>
+- begin: <span class="LibraryFunction">
+  selector: support.function
+  end: </span>
+- begin: <span class="Continuation">
+  selector: punctuation.separator.continuation
+  end: </span>
+- begin: <span class="LibraryConstant">
+  selector: support.constant
+  end: </span>
+- begin: <span class="LibraryClassType">
+  selector: support.type, support.class
+  end: </span>
+- begin: <span class="LibraryException">
+  selector: support.type.exception
+  end: </span>
+- begin: <span class="Special">
+  selector: keyword.other.special-method
+  end: </span>
+- begin: <span class="LibraryVariable">
+  selector: support.other.variable
+  end: </span>
+- begin: <span class="Invalid">
+  selector: invalid
+  end: </span>
+- begin: <span class="QuotedString">
+  selector: string.quoted.double, string.quoted.single
+  end: </span>
+- begin: <span class="Quotes">
+  selector: punctuation.definition.string.begin, punctuation.definition.string.end
+  end: </span>
+- begin: <span class="CssProperty">
+  selector: entity.name.tag.css, support.type.property-name.css, meta.property-name.css
+  end: </span>
+- begin: <span class="CssFontFace">
+  selector: source.css
+  end: </span>
+- begin: <span class="CssSelector">
+  selector: meta.selector.css
+  end: </span>
+- begin: <span class="Css">
+  selector: punctuation.section.property-list.css
+  end: </span>
+- begin: <span class="CssNumericValue">
+  selector: meta.property-value.css constant.numeric.css, keyword.other.unit.css,constant.other.color.rgb-value.css
+  end: </span>
+- begin: <span class="CssValue">
+  selector: meta.property-value.css
+  end: </span>
+- begin: <span class="CssImportant">
+  selector: keyword.other.important.css
+  end: </span>
+- begin: <span class="CssStandardValue">
+  selector: support.constant.color
+  end: </span>
+- begin: <span class="CssTag">
+  selector: entity.name.tag.css
+  end: </span>
+- begin: <span class="Css1">
+  selector: punctuation.separator.key-value.css, punctuation.terminator.rule.css
+  end: </span>
+- begin: <span class="CssClass">
+  selector: entity.other.attribute-name.class.css
+  end: </span>
+- begin: <span class="CssPseudo">
+  selector: entity.other.attribute-name.pseudo-element.css, entity.other.attribute-name.pseudo-class.css
+  end: </span>
+- begin: <span class="CssId">
+  selector: entity.other.attribute-name.id.css
+  end: </span>
+- begin: <span class="JsFunctionName">
+  selector: meta.function.js, entity.name.function.js, support.function.dom.js
+  end: </span>
+- begin: <span class="JsSource">
+  selector: text.html.basic source.js.embedded.html
+  end: </span>
+- begin: <span class="JsFunction">
+  selector: storage.type.function.js
+  end: </span>
+- begin: <span class="JsNumericConstant">
+  selector: constant.numeric.js
+  end: </span>
+- begin: <span class="Js">
+  selector: meta.brace.square.js
+  end: </span>
+- begin: <span class="JsStorageType">
+  selector: storage.type.js
+  end: </span>
+- begin: <span class="xx">
+  selector: meta.brace.round, punctuation.definition.parameters.begin.js, punctuation.definition.parameters.end.js
+  end: </span>
+- begin: <span class="xx1">
+  selector: meta.brace.curly.js
+  end: </span>
+- begin: <span class="HtmlDoctype">
+  selector: entity.name.tag.doctype.html, meta.tag.sgml.html, string.quoted.double.doctype.identifiers-and-DTDs.html
+  end: </span>
+- begin: <span class="HtmlCommentBlock">
+  selector: comment.block.html
+  end: </span>
+- begin: <span class="HtmlScript">
+  selector: entity.name.tag.script.html
+  end: </span>
+- begin: <span class="HtmlStyle">
+  selector: source.css.embedded.html string.quoted.double.html
+  end: </span>
+- begin: <span class="HtmlText">
+  selector: text.html.ruby
+  end: </span>
+- begin: <span class="Html">
+  selector: text.html.basic meta.tag.other.html, text.html.basic meta.tag.any.html, text.html.basic meta.tag.block.any, text.html.basic meta.tag.inline.any, text.html.basic meta.tag.structure.any.html, text.html.basic source.js.embedded.html, punctuation.separator.key-value.html
+  end: </span>
+- begin: <span class="HtmlSomething">
+  selector: text.html.basic entity.other.attribute-name.html
+  end: </span>
+- begin: <span class="Html1">
+  selector: "text.html.basic meta.tag.structure.any.html punctuation.definition.string.begin.html, punctuation.definition.string.begin.html, punctuation.definition.string.end.html "
+  end: </span>
+- begin: <span class="HtmlTag">
+  selector: entity.name.tag.block.any.html
+  end: </span>
+- begin: <span class="HtmlStyle1">
+  selector: source.css.embedded.html entity.name.tag.style.html
+  end: </span>
+- begin: <span class="HtmlStyle3">
+  selector: entity.name.tag.style.html
+  end: </span>
+- begin: <span class="Html3">
+  selector: text.html.basic punctuation.section.property-list.css
+  end: </span>
+- begin: <span class="HtmlEmbeddable">
+  selector: source.css.embedded.html, comment.block.html
+  end: </span>
+- begin: <span class="RubyVariableDefinition">
+  selector: punctuation.definition.variable.ruby
+  end: </span>
+- begin: <span class="RubyFunctionName">
+  selector: meta.function.method.with-arguments.ruby
+  end: </span>
+- begin: <span class="RubyVariable">
+  selector: variable.language.ruby
+  end: </span>
+- begin: <span class="RubyFunction">
+  selector: entity.name.function.ruby
+  end: </span>
+- begin: <span class="RubyKeywordControl">
+  selector: keyword.control.ruby, keyword.control.def.ruby
+  end: </span>
+- begin: <span class="RubyClass">
+  selector: keyword.control.class.ruby, meta.class.ruby
+  end: </span>
+- begin: <span class="RubyClassName">
+  selector: entity.name.type.class.ruby
+  end: </span>
+- begin: <span class="RubyKeyword">
+  selector: keyword.control.ruby
+  end: </span>
+- begin: <span class="RubySupportClass">
+  selector: support.class.ruby
+  end: </span>
+- begin: <span class="RubySpecialMethod">
+  selector: keyword.other.special-method.ruby
+  end: </span>
+- begin: <span class="RubyConstant">
+  selector: constant.language.ruby, constant.numeric.ruby
+  end: </span>
+- begin: <span class="RubyConstantOther">
+  selector: variable.other.constant.ruby
+  end: </span>
+- begin: <span class="RubySymbol">
+  selector: constant.other.symbol.ruby
+  end: </span>
+- begin: <span class="RubyPunctuationSection">
+  selector: punctuation.section.embedded.ruby, punctuation.definition.string.begin.ruby, punctuation.definition.string.end.ruby
+  end: </span>
+- begin: <span class="RubySpecialMethod1">
+  selector: keyword.other.special-method.ruby
+  end: </span>
+- begin: <span class="PhpInclude">
+  selector: keyword.control.import.include.php
+  end: </span>
+- begin: <span class="RubyErb">
+  selector: text.html.ruby meta.tag.inline.any.html
+  end: </span>
+- begin: <span class="RubyErb1">
+  selector: text.html.ruby punctuation.definition.string.begin, text.html.ruby punctuation.definition.string.end
+  end: </span>
+- begin: <span class="PhpQuotedSingle">
+  selector: punctuation.definition.string.begin, punctuation.definition.string.end
+  end: </span>
+- begin: <span class="Php">
+  selector: keyword.operator.index-start.php, keyword.operator.index-end.php
+  end: </span>
+- begin: <span class="PhpArray">
+  selector: meta.array.php
+  end: </span>
+- begin: <span class="PhpArray1">
+  selector: meta.array.php support.function.construct.php, meta.array.empty.php support.function.construct.php
+  end: </span>
+- begin: <span class="PhpArrayConstruct">
+  selector: support.function.construct.php
+  end: </span>
+- begin: <span class="PhpArrayBegin">
+  selector: punctuation.definition.array.begin, punctuation.definition.array.end
+  end: </span>
+- begin: <span class="PhpNumericConstant">
+  selector: constant.numeric.php
+  end: </span>
+- begin: <span class="PhpNew">
+  selector: keyword.other.new.php
+  end: </span>
+- begin: <span class="Php1">
+  selector: support.class.php, keyword.operator.class
+  end: </span>
+- begin: <span class="PhpOtherProperty">
+  selector: variable.other.property.php
+  end: </span>
+- begin: <span class="PhpClass">
+  selector: storage.modifier.extends.php, storage.type.class.php, keyword.operator.class.php
+  end: </span>
+- begin: <span class="PhpInheritedClass">
+  selector: meta.other.inherited-class.php
+  end: </span>
+- begin: <span class="PhpStorageType">
+  selector: storage.type.php
+  end: </span>
+- begin: <span class="PhpFunction">
+  selector: entity.name.function.php
+  end: </span>
+- begin: <span class="PhpFunctionConstruct">
+  selector: support.function.construct.php
+  end: </span>
+- begin: <span class="PhpFunctionCall">
+  selector: entity.name.type.class.php, meta.function-call.php, meta.function-call.static.php, meta.function-call.object.php
+  end: </span>
+- begin: <span class="PhpComment">
+  selector: keyword.other.phpdoc
+  end: </span>
+- begin: <span class="PhpSourceEmebedded">
+  selector: source.php.embedded.block.html
+  end: </span>
+- begin: <span class="PhpStorageTypeFunction">
+  selector: storage.type.function.php
+  end: </span>
+- begin: <span class="CConstant">
+  selector: constant.numeric.c
+  end: </span>
+- begin: <span class="CMetaPreprocessor">
+  selector: meta.preprocessor.c.include, meta.preprocessor.macro.c
+  end: </span>
+- begin: <span class="CKeyword">
+  selector: keyword.control.import.define.c, keyword.control.import.include.c
+  end: </span>
+- begin: <span class="CFunctionPreprocessor">
+  selector: entity.name.function.preprocessor.c
+  end: </span>
+- begin: <span class="CIncludeSomethingC">
+  selector: meta.preprocessor.c.include string.quoted.other.lt-gt.include.c, meta.preprocessor.c.include punctuation.definition.string.begin.c, meta.preprocessor.c.include punctuation.definition.string.end.c
+  end: </span>
+- begin: <span class="CFunction">
+  selector: support.function.C99.c, support.function.any-method.c, entity.name.function.c
+  end: </span>
+- begin: <span class="C">
+  selector: punctuation.definition.string.begin.c, punctuation.definition.string.end.c
+  end: </span>
+- begin: <span class="CStorageType">
+  selector: storage.type.c
+  end: </span>
+- begin: <span class="DiffHeader">
+  selector: meta.diff, meta.diff.header
+  end: </span>
+- begin: <span class="DiffDeleted">
+  selector: markup.deleted
+  end: </span>
+- begin: <span class="DiffChanged">
+  selector: markup.changed
+  end: </span>
+- begin: <span class="DiffInserted">
+  selector: markup.inserted
+  end: </span>
+- begin: <span class="MarkdownLinebreak">
+  selector: text.html.markdown meta.dummy.line-break
+  end: </span>
+- begin: <span class="MarkdownRaw">
+  selector: text.html.markdown markup.raw.inline
+  end: </span>
+- begin: <span class="RestRaw">
+  selector: text.restructuredtext markup.raw
+  end: </span>
+- begin: <span class="OtherRemoval">
+  selector: other.package.exclude, other.remove
+  end: </span>
+- begin: <span class="OtherAdd">
+  selector: other.add
+  end: </span>
+- begin: <span class="Tex">
+  selector: punctuation.section.group.tex , punctuation.definition.arguments.begin.latex, punctuation.definition.arguments.end.latex, punctuation.definition.arguments.latex
+  end: </span>
+- begin: <span class="TexText">
+  selector: meta.group.braces.tex
+  end: </span>
+- begin: <span class="TexOtherMath">
+  selector: string.other.math.tex
+  end: </span>
+- begin: <span class="TexVar">
+  selector: variable.parameter.function.latex
+  end: </span>
+- begin: <span class="TexMath">
+  selector: punctuation.definition.constant.math.tex
+  end: </span>
+- begin: <span class="TexConstantMath">
+  selector: text.tex.latex constant.other.math.tex, constant.other.general.math.tex, constant.other.general.math.tex, constant.character.math.tex
+  end: </span>
+- begin: <span class="TexOtherMathString">
+  selector: string.other.math.tex
+  end: </span>
+- begin: <span class="Tex1">
+  selector: punctuation.definition.string.begin.tex, punctuation.definition.string.end.tex
+  end: </span>
+- begin: <span class="TexLabel">
+  selector: keyword.control.label.latex, text.tex.latex constant.other.general.math.tex
+  end: </span>
+- begin: <span class="TexLabel1">
+  selector: variable.parameter.definition.label.latex
+  end: </span>
+- begin: <span class="TexFunction">
+  selector: support.function.be.latex
+  end: </span>
+- begin: <span class="TexSupportFunctionSection">
+  selector: support.function.section.latex
+  end: </span>
+- begin: <span class="TexSupportFunction">
+  selector: support.function.general.tex
+  end: </span>
+- begin: <span class="TexComment">
+  selector: punctuation.definition.comment.tex, comment.line.percentage.tex
+  end: </span>
+- begin: <span class="TexReferenceLabel">
+  selector: keyword.control.ref.latex
+  end: </span>
+- begin: <span class="PythonStorage">
+  selector: storage.type.class.python, storage.type.function.python, storage.modifier.global.python
+  end: </span>
+- begin: <span class="PythonImport">
+  selector: keyword.control.import.python, keyword.control.import.from.python
+  end: </span>
+- begin: <span class="PythonSupportException">
+  selector: support.type.exception.python
+  end: </span>
+- begin: <span class="ShellBuiltin">
+  selector: support.function.builtin.shell
+  end: </span>
+- begin: <span class="ShellVariable">
+  selector: variable.other.normal.shell
+  end: </span>
+- begin: <span class="ShellDot_files">
+  selector: source.shell
+  end: </span>
+- begin: <span class="ShellMetaScopeInLoop">
+  selector: meta.scope.for-in-loop.shell, variable.other.loop.shell
+  end: </span>
+- begin: <span class="Shell">
+  selector: punctuation.definition.string.end.shell, punctuation.definition.string.begin.shell
+  end: </span>
+- begin: <span class="ShellMetaBlock">
+  selector: meta.scope.case-block.shell, meta.scope.case-body.shell
+  end: </span>
+- begin: <span class="Shell1">
+  selector: punctuation.definition.logical-expression.shell
+  end: </span>
+- begin: <span class="ShellComment">
+  selector: comment.line.number-sign.shell
+  end: </span>
+- begin: <span class="JavaImport">
+  selector: keyword.other.import.java
+  end: </span>
+- begin: <span class="JavaMetaImport">
+  selector: storage.modifier.import.java
+  end: </span>
+- begin: <span class="JavaClass">
+  selector: meta.class.java storage.modifier.java
+  end: </span>
+- begin: <span class="JavaComment">
+  selector: source.java comment.block
+  end: </span>
+- begin: <span class="JavaParam">
+  selector: comment.block meta.documentation.tag.param.javadoc keyword.other.documentation.param.javadoc
+  end: </span>
+- begin: <span class="PerlVariables">
+  selector: punctuation.definition.variable.perl, variable.other.readwrite.global.perl, variable.other.predefined.perl, keyword.operator.comparison.perl
+  end: </span>
+- begin: <span class="PerlFunctions">
+  selector: support.function.perl
+  end: </span>
+- begin: <span class="PerlComments">
+  selector: comment.line.number-sign.perl
+  end: </span>
+- begin: <span class="PerlQuotes">
+  selector: punctuation.definition.string.begin.perl, punctuation.definition.string.end.perl
+  end: </span>
+- begin: <span class="PerlChar">
+  selector: constant.character.escape.perl
+  end: </span>
+line: 
+  begin: ""
+  end: ""

@@ -1,0 +1,3 @@
+#!/bin/bash
+cp Dyndoc.tmLanguage ~/.config/sublime-text-2/Packages/User
+cp *.sublime-snippet ~/.config/sublime-text-2/Packages/User

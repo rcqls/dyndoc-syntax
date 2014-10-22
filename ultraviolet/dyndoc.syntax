@@ -1,0 +1,237 @@
+--- 
+scopeName: text.dyndoc
+name: Dyndoc
+repository: 
+  tag_user_dyn: 
+    begin: (\{\#)([A-Za-z_][\w.:_\-\|]*[=?!>]?)(\])
+    endCaptures: 
+      "1": 
+        name: punctuation.definition.tag.dyndoc
+      "2": 
+        name: entity.name.tag.dyndoc
+      "3": 
+        name: punctuation.definition.tag.dyndoc
+      "4": 
+        name: comment.line
+      "5": 
+        name: punctuation.definition.tag.dyndoc
+    beginCaptures: 
+      "1": 
+        name: punctuation.definition.tag.dyndoc
+      "2": 
+        name: entity.name.tag.dyndoc
+      "3": 
+        name: punctuation.definition.tag.dyndoc
+    end: (\[\#)(\2)?(?:(-)(.*))?(\})
+    patterns: 
+    - include: $self
+  tag_blck_out_dyn: 
+    begin: (\[\#)(<<|<|do|>>|>|out|txtl>|md>|html>|ttm>|\\n|nl|\?|&\?|tag|&tag|yield|=|\+|%)(\])
+    endCaptures: {}
+
+    beginCaptures: 
+      "1": 
+        name: punctuation.definition.tag.dyndoc
+      "2": 
+        name: keyword.name.tag.dyndoc
+      "3": 
+        name: punctuation.definition.tag.dyndoc
+    end: (?=\[\#)
+    contentName: markup.deleted
+    patterns: 
+    - include: "#include_blck_dyn"
+  tag_ruby_dyn: 
+    begin: (\{\#)(rb(?:>)?)(\])
+    endCaptures: 
+      "1": 
+        name: punctuation.definition.tag.dyndoc
+      "2": 
+        name: keyword.name.tag.dyndoc
+      "3": 
+        name: punctuation.definition.tag.dyndoc
+      "4": 
+        name: comment.line
+      "5": 
+        name: punctuation.definition.tag.dyndoc
+    beginCaptures: 
+      "1": 
+        name: punctuation.definition.tag.dyndoc
+      "2": 
+        name: keyword.name.tag.dyndoc
+      "3": 
+        name: punctuation.definition.tag.dyndoc
+    end: (\[\#)(\2)?(?:(\-)(.*))?(\})
+    patterns: 
+    - include: $self
+    - include: source.ruby
+  tag_instr_dyn: 
+    begin: (\{\#)(input|require|hide|txt|code|>|<|<<|verb|if|unless|loop|case|var|set|def|func|meth|new|super|do|out|blck|>>|call|renv|rverb|eval|ifndef|tags|opt|document|yield|keys)(\])
+    endCaptures: 
+      "1": 
+        name: punctuation.definition.tag.dyndoc
+      "2": 
+        name: keyword.name.tag.dyndoc
+      "3": 
+        name: punctuation.definition.tag.dyndoc
+      "4": 
+        name: comment.line
+      "5": 
+        name: punctuation.definition.tag.dyndoc
+    beginCaptures: 
+      "1": 
+        name: punctuation.definition.tag.dyndoc
+      "2": 
+        name: keyword.name.tag.dyndoc
+      "3": 
+        name: punctuation.definition.tag.dyndoc
+    end: (\[\#)(\2)?(?:(-)(.*))?(\})
+    patterns: 
+    - include: $self
+  tag_blck_var_dyn: 
+    begin: (\[\#)(>>|>|=)(\])
+    beginCaptures: 
+      "1": 
+        name: punctuation.definition.tag.dyndoc
+      "2": 
+        name: keyword.name.tag.dyndoc
+      "3": 
+        name: punctuation.definition.tag.dyndoc
+    end: (?=\[\#)
+    contentName: markup.inserted
+    patterns: 
+    - include: "#format_blck"
+    - include: "#include_blck_dyn"
+  tag_blck_r_dyn: 
+    begin: (\[\#)(r<|R<|r>|R>|R>>)(\])
+    endCaptures: {}
+
+    beginCaptures: 
+      "1": 
+        name: punctuation.definition.tag.dyndoc
+      "2": 
+        name: keyword.name.tag.dyndoc
+      "3": 
+        name: punctuation.definition.tag.dyndoc
+    end: (?=\[\#)
+    patterns: 
+    - include: "#include_blck_dyn"
+    - include: source.r
+  tag_user_short_dyn: 
+    captures: 
+      "1": 
+        name: punctuation.definition.tag.dyndoc
+      "2": 
+        name: keyword.name.tag.dyndoc
+      "3": 
+        name: punctuation.definition.tag.dyndoc
+    match: (\{\#)([A-Za-z_][\w.:_\-\|]*[=?!>]?)(\#\})
+  tag_blck_ruby_dyn: 
+    begin: (\[\#)(rb<|rb>)(\])
+    endCaptures: {}
+
+    beginCaptures: 
+      "1": 
+        name: punctuation.definition.tag.dyndoc
+      "2": 
+        name: keyword.name.tag.dyndoc
+      "3": 
+        name: punctuation.definition.tag.dyndoc
+    end: (?=\[\#)
+    patterns: 
+    - include: "#include_blck_dyn"
+    - include: source.ruby
+  format_blck: 
+    patterns: 
+    - captures: 
+        "1": 
+          name: variable.dyndoc
+        "2": 
+          name: constant
+      match: (?<=(?:>|=)\])\s*(\:?\:?[A-Za-z_][\w.\.:_\-\#]*)\s*(\[)\s*(?:(?!\#)|$)
+    - name: invalid
+      captures: 
+        "1": 
+          name: constant
+        "2": 
+          name: constant
+      match: (?:^\s*(\||\[(?!\#))|(\||\])$)
+    - captures: 
+        "1": 
+          name: constant
+      match: (\])\s*(?=\[\#)
+  include_blck_dyn: 
+    patterns: 
+    - include: "#tag_ruby_dyn"
+    - include: "#tag_r_dyn"
+    - include: "#tag_instr_dyn"
+    - include: "#tag_user_short_dyn"
+    - include: "#tag_user_dyn"
+    - include: "#extract_dyn"
+  tag_blck_dyn: 
+    begin: (\[\#)([.A-Za-z_\,][\w._\-]*)(\])
+    endCaptures: {}
+
+    beginCaptures: 
+      "1": 
+        name: punctuation.definition.tag.dyndoc
+      "2": 
+        name: keyword.name.tag.dyndoc
+      "3": 
+        name: punctuation.definition.tag.dyndoc
+    end: (?=\[\#)
+    patterns: 
+    - include: "#tag_ruby_dyn"
+    - include: "#tag_r_dyn"
+    - include: "#tag_instr_dyn"
+    - include: "#tag_user_short_dyn"
+    - include: "#tag_user_dyn"
+    - include: "#extract_dyn"
+  tag_r_dyn: 
+    begin: (\{\#)(r|R>|R)(\])
+    endCaptures: 
+      "1": 
+        name: punctuation.definition.tag.dyndoc
+      "2": 
+        name: keyword.name.tag.dyndoc
+      "3": 
+        name: punctuation.definition.tag.dyndoc
+      "4": 
+        name: comment.line
+      "5": 
+        name: punctuation.definition.tag.dyndoc
+    beginCaptures: 
+      "1": 
+        name: punctuation.definition.tag.dyndoc
+      "2": 
+        name: keyword.name.tag.dyndoc
+      "3": 
+        name: punctuation.definition.tag.dyndoc
+    end: (\[\#)(\2)?(?:(\-)(.*))?(\})
+    patterns: 
+    - include: source.r
+    - include: $self
+  extract_dyn: 
+    begin: (?:\#|\#\#|\@|\#F|\#R|\#r|\:R|\:r|\#Rb|\#rb|\:|\:Rb|\:rb)\{
+    captures: 
+      "0": 
+        name: comment.line
+    end: \}
+    contentName: variable.other.dyndoc
+    patterns: 
+    - include: "#extract_dyn"
+uuid: 4CA84C94-5555-431F-AC2B-250BAD9E27AB
+patterns: 
+- include: "#tag_blck_r_dyn"
+- include: "#tag_blck_ruby_dyn"
+- include: "#tag_blck_var_dyn"
+- include: "#tag_blck_out_dyn"
+- include: "#tag_blck_dyn"
+- include: "#tag_ruby_dyn"
+- include: "#tag_r_dyn"
+- include: "#tag_instr_dyn"
+- include: "#tag_user_short_dyn"
+- include: "#tag_user_dyn"
+- include: "#extract_dyn"
+fileTypes: 
+- dyn
+- dyn_tex

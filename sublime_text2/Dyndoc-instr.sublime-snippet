@@ -1,0 +1,7 @@
+<snippet>
+    <content><![CDATA[{#${1:name}]$0
+[#$1}]]></content>
+    <tabTrigger>i</tabTrigger>
+    <scope>text.dyndoc</scope>
+    <description> </description>
+</snippet>

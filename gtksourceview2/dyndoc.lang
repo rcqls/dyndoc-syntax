@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language id="dyn" _name="dyndoc" version="2.0" _section="Scripts">
+    <metadata>
+      <property name="mimetypes">text/x-dyndoc</property>
+      <property name="globs">*.dyn;*.dyn_tex</property>
+      <property name="line-comment-start">//</property>
+    </metadata>
+    <styles>
+	<style id="dynextract" _name="DynExtract" 
+                               map-to="def:constant"/>
+	<style id="tagdyn" _name="TagDyn" 
+                               map-to="def:preprocessor"/>
+        <style id="dynblck" _name="DynBlck" 
+                               map-to="def:keyword"/>
+	<style id="dynuser" _name="DynUser" 
+                               map-to="def:identifier"/>
+	<style id="txtblck" _name="TxtBlck" 
+                               map-to="def:shebang"/>
+        <style id="string" _name="String"
+                               map-to="def:string"/>
+        <style id="escape"  _name="Escape"
+                               map-to="def:escape"/>
+        <style id="preprocessor" _name="Preprocessor"
+                               map-to="def:preprocessor"/>
+        <style id="included-file" _name="Included File"
+                               map-to="def:package"/>
+        <style id="char" _name="Character"
+                               map-to="def:string"/>
+        <style id="keyword" _name="Keyword"
+                               map-to="def:keyword"/>
+        <style id="data-type" _name="Data Type"
+                               map-to="def:data-type"/>
+    </styles>
+    <definitions>
+      <define-regex id="instrBlock" extended="true">  
+        input|require|hide|txt|code|&gt;|&lt;|&lt;&lt;|verb|if|unless|loop|case|var|set|
+        def|func|meth|new|super|do|out|blck|&gt;&gt;|R&gt;|rb&gt;|call|r|R|renv|rverb|rb|
+        eval|ifndef|tags|opt|document|yield|keys
+      </define-regex>
+      
+      <define-regex id="blockTag" extended="true"> 
+        &lt;&lt;|&lt;|do|&gt;&gt;|&gt;|out|\\\\n|nl|r&lt;|R&lt;|rb&lt;|r&gt;|R&gt;|rb&gt;|\?|&amp;\?|tag|&amp;tag|yield|=|\+|&#37;
+      </define-regex>
+      <define-regex id="instrTag"  extended="true">
+        [.A-Za-z_\,][\w._\-]*
+      </define-regex>
+      <define-regex id="instrName" extended="true">
+        [A-Za-z_][\w.:_\-\|]*[=?!>]?
+      </define-regex>
+      <define-regex id="varName" extended="true">
+        [A-Za-z_][\w.:_\-\#]*
+        </define-regex>
+      <define-regex id="extractElt" extended="true">
+        \#|\#\#|\@|\#F|\#R|\#r|\:R|\:r|\#Rb|\#rb|\:|\:Rb|\:rb
+      </define-regex>
+
+      <!-- blck latex -->
+      <context id="dyn-latex">
+	    <include>
+	    <context ref="latex:latex"/>
+	    </include>
+      </context>
+      <!-- blck Ruby -->
+      <context id="dyn-common-rb">
+	<include>
+	  <context ref="dyn-txtblck-tag"/>
+	  <context ref="dyn-extract"/>
+	  <context ref="dyn-r"/>
+	  <context ref="dyn-blck"/>
+	  <context ref="dyn-user"/>
+	  <context ref="dyn-user-short"/>
+	  <context ref="ruby:ruby"/>
+	</include>
+      </context>
+      <context id="dyn-rb" style-inside="true" >
+	<start>(\{\#)(rb)(\])</start>
+	<end>(\[\#)(\%{2@start}(?:-.*)?)?(\})</end>
+	<include>
+	  <context  sub-pattern="1" style-ref="tagdyn" where="start"/>
+	  <context  sub-pattern="1" style-ref="tagdyn" where="end"/>
+	  <context  sub-pattern="2" style-ref="dynblck" where="start"/>
+	  <context  sub-pattern="2" style-ref="dynblck" where="end"/>
+	  <context  sub-pattern="3" style-ref="tagdyn" where="start"/>
+	  <context  sub-pattern="3" style-ref="tagdyn" where="end"/>
+	  <context ref="dyn-common-rb"/>
+	</include>
+      </context>
+  
+      <!-- blck R -->
+      <context id="dyn-common-r">
+	<include>
+	  <context ref="dyn-txtblck-tag"/>
+	  <context ref="dyn-extract"/>
+	  <context ref="def:shell-like-comment"/>
+	  <context ref="def:string"/>
+	  <context ref="def:single-quoted-string"/>
+	  <context ref="r:keywords"/>
+	  <context ref="r:assignment-operator"/>
+	  <context ref="r:special-constants"/>
+	  <context ref="r:boolean"/>
+	  <context ref="r:integer-number"/>
+	  <context ref="r:floating-point"/>
+	  <context ref="dyn-blck-tag"/>
+	  <context ref="dyn-blck"/>
+	  <context ref="dyn-user"/>
+	  <context ref="dyn-user-short"/>
+	</include>
+      </context>
+
+      <context id="dyn-r" style-inside="true">	
+	<start>(\{\#)(r|rverb)(\])</start>
+	<end>(\[\#)(\%{2@start}(?:-.*)?)?(\})</end>
+	<include>
+	  <context  sub-pattern="1" style-ref="tagdyn" where="start"/>
+	  <context  sub-pattern="1" style-ref="tagdyn" where="end"/>
+	  <context  sub-pattern="2" style-ref="dynblck" where="start"/>
+	  <context  sub-pattern="2" style-ref="dynblck" where="end"/>
+	  <context  sub-pattern="3" style-ref="tagdyn" where="start"/>
+	  <context  sub-pattern="3" style-ref="tagdyn" where="end"/>
+	  <context ref="dyn-common-r"/>
+	</include>
+      </context>
+
+      <context id="dyn-extract" style-inside="true">
+	<start>\%{extractElt}+\{</start>
+	<end>\}</end>
+	<include>
+	  <context sub-pattern="0" style-ref="dynextract" where="start"/>
+	  <context sub-pattern="0" style-ref="dynextract" where="end"/>
+	  <context ref="dyn-extract"/>
+	</include>
+      </context>
+
+      <context id="dyn-txtblck-tag" style-inside="true">
+	<start>(\[\#)(\%{blockTag})(\])</start>
+	<end>(?=\[\#)</end>
+	<include>
+	  <context sub-pattern="1" style-ref="tagdyn" where="start"/>
+	  <context sub-pattern="2" style-ref="txtblck" where="start"/>
+	  <context sub-pattern="3" style-ref="tagdyn" where="start"/>
+	  <context ref="dyn-common" />
+	</include>
+      </context>
+
+      <context id="dyn-txtblck-out-tag" style-inside="true">
+	<start>(\[\#)(>>?|=)([^]\}]*)(\])</start> 
+  <!-- "\}" is put here to enlight "[#>>}" otherwise this fails in "[#>>}]" --> 
+	<end>(?=\[\#)</end>
+	<include>
+	  <context sub-pattern="1" style-ref="tagdyn" where="start"/>
+	  <context sub-pattern="2" style-ref="txtblck" where="start"/>
+	  <context sub-pattern="3" style-ref="def:specials" where="start"/>
+	  <context sub-pattern="4" style-ref="tagdyn" where="start"/>
+	  <context ref="dyn-common" />
+	</include>
+      </context>
+
+
+      <context id="dyn-txtblck-r-tag" style-inside="true">
+	<start>(\[\#)(?:(r&gt;&gt;?)([^\]]*)|(r&lt;))(\])</start>
+	<end>(?=\[\#)</end>
+	<include>
+	  <context sub-pattern="1" style-ref="tagdyn" where="start"/>
+	  <context sub-pattern="2" style-ref="txtblck" where="start"/>
+	  <context sub-pattern="3" style-ref="def:specials" where="start"/>
+	  <context sub-pattern="4" style-ref="txtblck" where="start"/>
+	  <context sub-pattern="5" style-ref="tagdyn" where="start"/>
+	  <context ref="dyn-common-r" />
+	</include>
+      </context>
+
+      <context id="dyn-txtblck-rb-tag" style-inside="true">
+	<start>(\[\#)(?:(rb&gt;)([^\}\]]*)|(rb&lt;))(\])</start>
+  <!-- "\}" is put here to enlight "[#rb>}" otherwise this fails in "[#rb>}]" -->
+	<end>(?=\[\#)</end>
+	<include>
+	  <context sub-pattern="1" style-ref="tagdyn" where="start"/>
+	  <context sub-pattern="2" style-ref="txtblck" where="start"/>
+	  <context sub-pattern="3" style-ref="def:specials" where="start"/>
+	  <context sub-pattern="4" style-ref="txtblck" where="start"/>
+	  <context sub-pattern="5" style-ref="tagdyn" where="start"/>
+	  <context ref="dyn-common-rb" />
+	</include>
+      </context>
+      <!--context id="dyn-namedblck-tag" style-inside="true">
+	<start>([^\[]*)(\[)</start>
+	<end>(\])$</end>
+	<include>
+	  <context sub-pattern="1" style-ref="def:error" where="start"/>
+	  <context sub-pattern="2" style-ref="string" where="start"/>
+	  <context sub-pattern="1" style-ref="string" where="end"/>
+	  <context ref="dyn-common" />
+	</include>
+      </context -->
+
+      <!-- context id="dyn-namedblck-tag-OLD" extend-parent="false" style-inside="true" style-ref="def:specials">
+	<start>(\[\#)(\%{blockTag})(\])([^\[]*)(\[)</start>
+	<end>(\])(?=\[\#)</end>
+	<include>
+	  <context sub-pattern="1" style-ref="tagdyn" where="start"/>
+	  <context sub-pattern="2" style-ref="txtblck" where="start"/>
+	  <context sub-pattern="3" style-ref="tagdyn" where="start"/>
+	  <context sub-pattern="4" style-ref="def:error" where="start"/>
+	  <context sub-pattern="5" style-ref="string" where="start"/>
+	  <context sub-pattern="1" style-ref="string" where="end"/>
+	  <context ref="dyn-common" />
+	</include>
+      </context>
+      <context id="dyn-namedblck-tag-TWO">
+	<match extended="true">
+	  (\[\#)(\%{blockTag})(\])([^\[]*)(\[)
+	  .*(\])\s*(?=\[\#)
+	</match>
+	<include>
+	  <context sub-pattern="1" style-ref="tagdyn" />
+	  <context sub-pattern="2" style-ref="txtblck" />
+	  <context sub-pattern="3" style-ref="tagdyn" />
+	  <context sub-pattern="4" style-ref="def:error" />
+	  <context sub-pattern="5" style-ref="string" />
+	  <context sub-pattern="6" style-ref="string" />
+	</include>
+      </context -->
+      <context id="dyn-blck-tag">
+	<match>(\[\#)(\%{instrTag})(\])</match>
+	<include>
+	  <context sub-pattern="1" style-ref="tagdyn"/>
+	  <context sub-pattern="2" style-ref="dynblck"/>
+	  <context sub-pattern="3" style-ref="tagdyn"/>
+	</include>
+      </context>
+      <context id="dyn-instr-tag">
+	<match>(\[\#)(\%{instrTag})(\])</match>
+	<include>
+	  <context sub-pattern="1" style-ref="tagdyn"/>
+	  <context sub-pattern="2" style-ref="dynuser"/>
+	  <context sub-pattern="3" style-ref="tagdyn"/>
+	</include>
+      </context>
+      <!-- blck dyn -->
+      <context id="dyn-blck"  style-inside="true">
+	<start>(\{\#)(\%{instrBlock})(\])</start>
+        <end>(\[\#)(\%{2@start}(?:-.*)?)?(\})</end>
+	<include>
+	  <context  sub-pattern="1" style-ref="tagdyn" where="start"/>
+	  <context  sub-pattern="1" style-ref="tagdyn" where="end"/>
+	  <context  sub-pattern="2" style-ref="dynblck" where="start"/>
+	  <context  sub-pattern="2" style-ref="dynblck" where="end"/>
+	  <context  sub-pattern="3" style-ref="tagdyn" where="start"/>
+	  <context  sub-pattern="3" style-ref="tagdyn" where="end"/>
+	  
+	  <context ref="dyn-blck-tag"/>
+	  <context ref="dyn-common"/>
+	</include>
+      </context>
+      <!-- blck user -->
+      <context id="dyn-user-short">
+	<match>(\{\#)(\%{instrName})(\#\})</match>
+	<include>
+	  <context  sub-pattern="1" style-ref="tagdyn" />
+	  <context  sub-pattern="2" style-ref="dynuser"/>
+	  <context  sub-pattern="3" style-ref="tagdyn"/>
+	   
+	</include>
+      </context>
+      <context id="dyn-user"  style-inside="true">
+	<start>(\{\#)(\%{instrName})(\])</start>
+        <end>(\[\#)(\%{2@start}(?:-.*)?)?(\})</end>
+	<include>
+	  <context  sub-pattern="1" style-ref="tagdyn" where="start"/>
+	  <context  sub-pattern="1" style-ref="tagdyn" where="end"/>
+	  <context  sub-pattern="2" style-ref="dynuser" where="start"/>
+	  <context  sub-pattern="2" style-ref="dynuser" where="end"/>
+	  <context  sub-pattern="3" style-ref="tagdyn" where="start"/>
+	  <context  sub-pattern="3" style-ref="tagdyn" where="end"/>
+	  <context ref="dyn-instr-tag"/>
+	  <context ref="dyn-common"/>
+	</include>
+      </context>
+      <!-- blck user -->
+      <context id="dyn-common-blck">
+	<include>
+	  <context ref="dyn-latex"/>
+	  <context ref="dyn-extract"/>
+	  <context ref="dyn-txtblck-tag"/>
+	  <context ref="dyn-r"/>
+	  <context ref="dyn-rb"/>
+	  <context ref="dyn-blck"/>
+	  <context ref="dyn-user"/>
+	  <context ref="dyn-user-short"/>
+	</include>
+      </context>
+      <context id="dyn-common">
+	<include>
+	  <context ref="dyn-latex"/>
+	  <context ref="dyn-extract"/>
+	  <context ref="dyn-txtblck-rb-tag"/>
+	  <context ref="dyn-txtblck-r-tag"/>
+	  <context ref="dyn-txtblck-out-tag"/>
+	  <context ref="dyn-txtblck-tag"/>
+	  <context ref="dyn-r"/>
+	  <context ref="dyn-rb"/>
+	  <context ref="dyn-blck"/>
+	  <context ref="dyn-user"/>
+	  <context ref="dyn-user-short"/>
+	</include>
+      </context>
+      <!-- The main context -->
+      <context id="dyn">
+        <include>
+	    <context id="string" end-at-line-end="true" style-ref="string">
+	    <start>"</start>
+	    <end>"</end>
+	    </context>
+	    <context ref="def:decimal"/>
+        <context ref="def:float"/>
+	    <context ref="dyn-blck-tag"/>
+	    <context ref="dyn-common"/>
+	    </include>
+      </context>
+    </definitions>
+</language>
+

@@ -1,0 +1,495 @@
+--- 
+filter: "@escaped.gsub(/(\\$)/, '\\\\\\\\\\1').gsub(/\\\\(?!\\$)/, '$\\\\\\\\backslash$').gsub(/(_|\\{|\\}|&|\\#|%)/, '\\\\\\\\\\1').gsub(/~/, '\\\\textasciitilde ').gsub(/ /,'\\\\hspace{1ex}').gsub(/\\t| /,'\\\\hspace{3ex}').gsub(/\\\"/, \"''\").gsub(/(\\^)/,'\\\\\\\\\\1{}')"
+line-numbers: 
+  end: "}&\\mbox{\\texttt{"
+  begin: \texttt{
+listing: 
+  end: |
+    \end{longtable}
+
+  begin: |
+    \newcolumntype{C}{>{\color[HTML]{586E75}\columncolor[HTML]{FDF6E3}}l}
+    \newcolumntype{N}{>{\color[HTML]{FFFFFF}\columncolor[HTML]{073642}}l}
+    \begin{longtable}{NC}
+
+document: 
+  end: |
+    \end{document}
+
+  begin: |
+    \documentclass[a4paper,landscape]{article}
+    \usepackage{xcolor}
+    \usepackage{colortbl}
+    \usepackage{longtable}
+    \usepackage[left=2cm,top=1cm,right=3cm,nohead,nofoot]{geometry}
+    \usepackage[T1]{fontenc}
+    \usepackage[scaled]{beramono}
+    \begin{document}
+
+name: Solarized (light)
+tags: 
+- end: "}"
+  begin: "{\\color[HTML]{93A1A1}"
+  selector: comment
+- end: "}"
+  begin: "{\\color[HTML]{2AA198}"
+  selector: string
+- end: "}"
+  begin: "{\\color[HTML]{586E75}"
+  selector: string
+- end: "}"
+  begin: "{\\color[HTML]{D30102}"
+  selector: string.regexp
+- end: "}"
+  begin: "{\\color[HTML]{D33682}"
+  selector: constant.numeric
+- end: "}"
+  begin: "{\\color[HTML]{268BD2}"
+  selector: variable.language, variable.other
+- end: "}"
+  begin: "{\\color[HTML]{859900}"
+  selector: keyword
+- end: "}}"
+  begin: "{\\color[HTML]{073642}\\textbf{"
+  selector: storage
+- end: "}"
+  begin: "{\\color[HTML]{268BD2}"
+  selector: entity.name.class, entity.name.type.class
+- end: "}"
+  begin: "{\\color[HTML]{268BD2}"
+  selector: entity.name.function
+- end: "}"
+  begin: "{\\color[HTML]{859900}"
+  selector: punctuation.definition.variable
+- end: "}"
+  begin: "{\\color[HTML]{D30102}"
+  selector: punctuation.section.embedded.begin, punctuation.section.embedded.end
+- end: "}"
+  begin: "{\\color[HTML]{B58900}"
+  selector: constant.language, meta.preprocessor
+- end: "}"
+  begin: "{\\color[HTML]{D30102}"
+  selector: support.function.construct, keyword.other.new
+- end: "}"
+  begin: "{\\color[HTML]{CB4B16}"
+  selector: constant.character, constant.other
+- end: "}"
+  begin: "{"
+  selector: entity.other.inherited-class
+- end: "}"
+  begin: "{"
+  selector: variable.parameter
+- end: "}}"
+  begin: "{\\color[HTML]{268BD2}\\textbf{"
+  selector: entity.name.tag
+- end: "}"
+  begin: "{\\color[HTML]{93A1A1}"
+  selector: punctuation.definition.tag.html, punctuation.definition.tag.begin, punctuation.definition.tag.end
+- end: "}"
+  begin: "{\\color[HTML]{93A1A1}"
+  selector: entity.other.attribute-name
+- end: "}"
+  begin: "{\\color[HTML]{268BD2}"
+  selector: support.function
+- end: "}"
+  begin: "{\\color[HTML]{D30102}"
+  selector: punctuation.separator.continuation
+- end: "}"
+  begin: "{"
+  selector: support.constant
+- end: "}"
+  begin: "{\\color[HTML]{859900}"
+  selector: support.type, support.class
+- end: "}"
+  begin: "{\\color[HTML]{CB4B16}"
+  selector: support.type.exception
+- end: "}"
+  begin: "{\\color[HTML]{CB4B16}"
+  selector: keyword.other.special-method
+- end: "}"
+  begin: "{"
+  selector: support.other.variable
+- end: "}"
+  begin: "{"
+  selector: invalid
+- end: "}"
+  begin: "{\\color[HTML]{269186}"
+  selector: string.quoted.double, string.quoted.single
+- end: "}"
+  begin: "{\\color[HTML]{C60000}"
+  selector: punctuation.definition.string.begin, punctuation.definition.string.end
+- end: "}"
+  begin: "{\\color[HTML]{A57800}"
+  selector: entity.name.tag.css, support.type.property-name.css, meta.property-name.css
+- end: "}"
+  begin: "{\\color[HTML]{D01F1E}"
+  selector: source.css
+- end: "}"
+  begin: "{\\color[HTML]{536871}"
+  selector: meta.selector.css
+- end: "}"
+  begin: "{\\color[HTML]{5A74CF}"
+  selector: punctuation.section.property-list.css
+- end: "}"
+  begin: "{\\color[HTML]{269186}"
+  selector: meta.property-value.css constant.numeric.css, keyword.other.unit.css,constant.other.color.rgb-value.css
+- end: "}"
+  begin: "{\\color[HTML]{269186}"
+  selector: meta.property-value.css
+- end: "}"
+  begin: "{\\color[HTML]{D01F1E}"
+  selector: keyword.other.important.css
+- end: "}"
+  begin: "{\\color[HTML]{269186}"
+  selector: support.constant.color
+- end: "}"
+  begin: "{\\color[HTML]{738A13}"
+  selector: entity.name.tag.css
+- end: "}"
+  begin: "{\\color[HTML]{536871}"
+  selector: punctuation.separator.key-value.css, punctuation.terminator.rule.css
+- end: "}"
+  begin: "{\\color[HTML]{268BD2}"
+  selector: entity.other.attribute-name.class.css
+- end: "}"
+  begin: "{\\color[HTML]{BD3800}"
+  selector: entity.other.attribute-name.pseudo-element.css, entity.other.attribute-name.pseudo-class.css
+- end: "}"
+  begin: "{\\color[HTML]{268BD2}"
+  selector: entity.other.attribute-name.id.css
+- end: "}"
+  begin: "{\\color[HTML]{A57800}"
+  selector: meta.function.js, entity.name.function.js, support.function.dom.js
+- end: "}"
+  begin: "{\\color[HTML]{A57800}"
+  selector: text.html.basic source.js.embedded.html
+- end: "}"
+  begin: "{\\color[HTML]{268BD2}"
+  selector: storage.type.function.js
+- end: "}"
+  begin: "{\\color[HTML]{269186}"
+  selector: constant.numeric.js
+- end: "}"
+  begin: "{\\color[HTML]{268BD2}"
+  selector: meta.brace.square.js
+- end: "}"
+  begin: "{\\color[HTML]{268BD2}"
+  selector: storage.type.js
+- end: "}"
+  begin: "{\\color[HTML]{93A1A1}"
+  selector: meta.brace.round, punctuation.definition.parameters.begin.js, punctuation.definition.parameters.end.js
+- end: "}"
+  begin: "{\\color[HTML]{268BD2}"
+  selector: meta.brace.curly.js
+- end: "}}"
+  begin: "{\\color[HTML]{899090}\\textit{"
+  selector: entity.name.tag.doctype.html, meta.tag.sgml.html, string.quoted.double.doctype.identifiers-and-DTDs.html
+- end: "}}"
+  begin: "{\\color[HTML]{839496}\\textit{"
+  selector: comment.block.html
+- end: "}}"
+  begin: "{\\textit{"
+  selector: entity.name.tag.script.html
+- end: "}"
+  begin: "{\\color[HTML]{269186}"
+  selector: source.css.embedded.html string.quoted.double.html
+- end: "}}"
+  begin: "{\\color[HTML]{BD3800}\\textbf{"
+  selector: text.html.ruby
+- end: "}"
+  begin: "{\\color[HTML]{708284}"
+  selector: text.html.basic meta.tag.other.html, text.html.basic meta.tag.any.html, text.html.basic meta.tag.block.any, text.html.basic meta.tag.inline.any, text.html.basic meta.tag.structure.any.html, text.html.basic source.js.embedded.html, punctuation.separator.key-value.html
+- end: "}"
+  begin: "{\\color[HTML]{708284}"
+  selector: text.html.basic entity.other.attribute-name.html
+- end: "}"
+  begin: "{\\color[HTML]{269186}"
+  selector: "text.html.basic meta.tag.structure.any.html punctuation.definition.string.begin.html, punctuation.definition.string.begin.html, punctuation.definition.string.end.html "
+- end: "}}"
+  begin: "{\\color[HTML]{268BD2}\\textbf{"
+  selector: entity.name.tag.block.any.html
+- end: "}}"
+  begin: "{\\textit{"
+  selector: source.css.embedded.html entity.name.tag.style.html
+- end: "}"
+  begin: "{"
+  selector: entity.name.tag.style.html
+- end: "}"
+  begin: "{"
+  selector: text.html.basic punctuation.section.property-list.css
+- end: "}}"
+  begin: "{\\color[HTML]{819090}\\textit{"
+  selector: source.css.embedded.html, comment.block.html
+- end: "}"
+  begin: "{\\color[HTML]{268BD2}"
+  selector: punctuation.definition.variable.ruby
+- end: "}"
+  begin: "{\\color[HTML]{708284}"
+  selector: meta.function.method.with-arguments.ruby
+- end: "}"
+  begin: "{\\color[HTML]{469186}"
+  selector: variable.language.ruby
+- end: "}"
+  begin: "{\\color[HTML]{268BD2}"
+  selector: entity.name.function.ruby
+- end: "}}"
+  begin: "{\\color[HTML]{738A05}\\textbf{"
+  selector: keyword.control.ruby, keyword.control.def.ruby
+- end: "}"
+  begin: "{\\color[HTML]{748B00}"
+  selector: keyword.control.class.ruby, meta.class.ruby
+- end: "}"
+  begin: "{\\color[HTML]{A57800}"
+  selector: entity.name.type.class.ruby
+- end: "}"
+  begin: "{\\color[HTML]{748B00}"
+  selector: keyword.control.ruby
+- end: "}"
+  begin: "{\\color[HTML]{A57800}"
+  selector: support.class.ruby
+- end: "}"
+  begin: "{\\color[HTML]{748B00}"
+  selector: keyword.other.special-method.ruby
+- end: "}"
+  begin: "{\\color[HTML]{269186}"
+  selector: constant.language.ruby, constant.numeric.ruby
+- end: "}"
+  begin: "{\\color[HTML]{A57800}"
+  selector: variable.other.constant.ruby
+- end: "}"
+  begin: "{\\color[HTML]{269186}"
+  selector: constant.other.symbol.ruby
+- end: "}"
+  begin: "{\\color[HTML]{D01F1E}"
+  selector: punctuation.section.embedded.ruby, punctuation.definition.string.begin.ruby, punctuation.definition.string.end.ruby
+- end: "}"
+  begin: "{\\color[HTML]{BD3800}"
+  selector: keyword.other.special-method.ruby
+- end: "}"
+  begin: "{\\color[HTML]{BD3800}"
+  selector: keyword.control.import.include.php
+- end: "}"
+  begin: "{\\color[HTML]{819090}"
+  selector: text.html.ruby meta.tag.inline.any.html
+- end: "}"
+  begin: "{\\color[HTML]{269186}"
+  selector: text.html.ruby punctuation.definition.string.begin, text.html.ruby punctuation.definition.string.end
+- end: "}"
+  begin: "{\\color[HTML]{839496}"
+  selector: punctuation.definition.string.begin, punctuation.definition.string.end
+- end: "}"
+  begin: "{\\color[HTML]{D31E1E}"
+  selector: keyword.operator.index-start.php, keyword.operator.index-end.php
+- end: "}"
+  begin: "{\\color[HTML]{536871}"
+  selector: meta.array.php
+- end: "}"
+  begin: "{\\color[HTML]{A57800}"
+  selector: meta.array.php support.function.construct.php, meta.array.empty.php support.function.construct.php
+- end: "}"
+  begin: "{\\color[HTML]{A57800}"
+  selector: support.function.construct.php
+- end: "}"
+  begin: "{\\color[HTML]{D31E1E}"
+  selector: punctuation.definition.array.begin, punctuation.definition.array.end
+- end: "}"
+  begin: "{\\color[HTML]{269186}"
+  selector: constant.numeric.php
+- end: "}"
+  begin: "{\\color[HTML]{CB4B16}"
+  selector: keyword.other.new.php
+- end: "}"
+  begin: "{\\color[HTML]{536871}"
+  selector: support.class.php, keyword.operator.class
+- end: "}"
+  begin: "{\\color[HTML]{899090}"
+  selector: variable.other.property.php
+- end: "}"
+  begin: "{\\color[HTML]{A57800}"
+  selector: storage.modifier.extends.php, storage.type.class.php, keyword.operator.class.php
+- end: "}"
+  begin: "{\\color[HTML]{536871}"
+  selector: meta.other.inherited-class.php
+- end: "}"
+  begin: "{\\color[HTML]{748B00}"
+  selector: storage.type.php
+- end: "}"
+  begin: "{\\color[HTML]{899090}"
+  selector: entity.name.function.php
+- end: "}"
+  begin: "{\\color[HTML]{748B00}"
+  selector: support.function.construct.php
+- end: "}"
+  begin: "{\\color[HTML]{839496}"
+  selector: entity.name.type.class.php, meta.function-call.php, meta.function-call.static.php, meta.function-call.object.php
+- end: "}"
+  begin: "{\\color[HTML]{899090}"
+  selector: keyword.other.phpdoc
+- end: "}"
+  begin: "{\\color[HTML]{BD3613}"
+  selector: source.php.embedded.block.html
+- end: "}"
+  begin: "{\\color[HTML]{BD3800}"
+  selector: storage.type.function.php
+- end: "}"
+  begin: "{\\color[HTML]{269186}"
+  selector: constant.numeric.c
+- end: "}"
+  begin: "{\\color[HTML]{BB3700}"
+  selector: meta.preprocessor.c.include, meta.preprocessor.macro.c
+- end: "}"
+  begin: "{\\color[HTML]{BB3700}"
+  selector: keyword.control.import.define.c, keyword.control.import.include.c
+- end: "}"
+  begin: "{\\color[HTML]{BB3700}"
+  selector: entity.name.function.preprocessor.c
+- end: "}"
+  begin: "{\\color[HTML]{269186}"
+  selector: meta.preprocessor.c.include string.quoted.other.lt-gt.include.c, meta.preprocessor.c.include punctuation.definition.string.begin.c, meta.preprocessor.c.include punctuation.definition.string.end.c
+- end: "}"
+  begin: "{\\color[HTML]{536871}"
+  selector: support.function.C99.c, support.function.any-method.c, entity.name.function.c
+- end: "}"
+  begin: "{\\color[HTML]{269186}"
+  selector: punctuation.definition.string.begin.c, punctuation.definition.string.end.c
+- end: "}"
+  begin: "{\\color[HTML]{A57800}"
+  selector: storage.type.c
+- end: "}}"
+  begin: \setlength{\fboxsep}{0ex}\colorbox[HTML]{A57706}{\rule[-0.5ex]{0pt}{2.0ex}\color[HTML]{E0EDDD}\textit{
+  selector: meta.diff, meta.diff.header
+- end: "}"
+  begin: \setlength{\fboxsep}{0ex}\colorbox[HTML]{EAE3CA}{\rule[-0.5ex]{0pt}{2.0ex}\color[HTML]{D3201F}
+  selector: markup.deleted
+- end: "}"
+  begin: \setlength{\fboxsep}{0ex}\colorbox[HTML]{EAE3CA}{\rule[-0.5ex]{0pt}{2.0ex}\color[HTML]{BF3904}
+  selector: markup.changed
+- end: "}"
+  begin: \setlength{\fboxsep}{0ex}\colorbox[HTML]{EAE3CA}{\rule[-0.5ex]{0pt}{2.0ex}\color[HTML]{219186}
+  selector: markup.inserted
+- end: "}"
+  begin: \setlength{\fboxsep}{0ex}\colorbox[HTML]{A57706}{\rule[-0.5ex]{0pt}{2.0ex}\color[HTML]{E0EDDD}
+  selector: text.html.markdown meta.dummy.line-break
+- end: "}"
+  begin: "{\\color[HTML]{269186}"
+  selector: text.html.markdown markup.raw.inline
+- end: "}"
+  begin: "{\\color[HTML]{269186}"
+  selector: text.restructuredtext markup.raw
+- end: "}"
+  begin: "{\\color[HTML]{D3201F}"
+  selector: other.package.exclude, other.remove
+- end: "}"
+  begin: "{\\color[HTML]{269186}"
+  selector: other.add
+- end: "}"
+  begin: "{\\color[HTML]{B81D1C}"
+  selector: punctuation.section.group.tex , punctuation.definition.arguments.begin.latex, punctuation.definition.arguments.end.latex, punctuation.definition.arguments.latex
+- end: "}"
+  begin: "{\\color[HTML]{A57705}"
+  selector: meta.group.braces.tex
+- end: "}"
+  begin: "{\\color[HTML]{A57705}"
+  selector: string.other.math.tex
+- end: "}"
+  begin: "{\\color[HTML]{BD3800}"
+  selector: variable.parameter.function.latex
+- end: "}"
+  begin: "{\\color[HTML]{D01F1E}"
+  selector: punctuation.definition.constant.math.tex
+- end: "}"
+  begin: "{\\color[HTML]{269186}"
+  selector: text.tex.latex constant.other.math.tex, constant.other.general.math.tex, constant.other.general.math.tex, constant.character.math.tex
+- end: "}"
+  begin: "{\\color[HTML]{A57800}"
+  selector: string.other.math.tex
+- end: "}"
+  begin: "{\\color[HTML]{D3201F}"
+  selector: punctuation.definition.string.begin.tex, punctuation.definition.string.end.tex
+- end: "}"
+  begin: "{\\color[HTML]{269186}"
+  selector: keyword.control.label.latex, text.tex.latex constant.other.general.math.tex
+- end: "}"
+  begin: "{\\color[HTML]{D01F1E}"
+  selector: variable.parameter.definition.label.latex
+- end: "}"
+  begin: "{\\color[HTML]{748B00}"
+  selector: support.function.be.latex
+- end: "}"
+  begin: "{\\color[HTML]{BD3800}"
+  selector: support.function.section.latex
+- end: "}"
+  begin: "{\\color[HTML]{269186}"
+  selector: support.function.general.tex
+- end: "}}"
+  begin: "{\\textit{"
+  selector: punctuation.definition.comment.tex, comment.line.percentage.tex
+- end: "}"
+  begin: "{\\color[HTML]{269186}"
+  selector: keyword.control.ref.latex
+- end: "}"
+  begin: "{\\color[HTML]{748B00}"
+  selector: storage.type.class.python, storage.type.function.python, storage.modifier.global.python
+- end: "}"
+  begin: "{\\color[HTML]{BD3800}"
+  selector: keyword.control.import.python, keyword.control.import.from.python
+- end: "}"
+  begin: "{\\color[HTML]{A57800}"
+  selector: support.type.exception.python
+- end: "}"
+  begin: "{\\color[HTML]{748B00}"
+  selector: support.function.builtin.shell
+- end: "}"
+  begin: "{\\color[HTML]{BD3800}"
+  selector: variable.other.normal.shell
+- end: "}"
+  begin: "{\\color[HTML]{268BD2}"
+  selector: source.shell
+- end: "}"
+  begin: "{\\color[HTML]{536871}"
+  selector: meta.scope.for-in-loop.shell, variable.other.loop.shell
+- end: "}"
+  begin: "{\\color[HTML]{748B00}"
+  selector: punctuation.definition.string.end.shell, punctuation.definition.string.begin.shell
+- end: "}"
+  begin: "{\\color[HTML]{536871}"
+  selector: meta.scope.case-block.shell, meta.scope.case-body.shell
+- end: "}"
+  begin: "{\\color[HTML]{CD1E1D}"
+  selector: punctuation.definition.logical-expression.shell
+- end: "}}"
+  begin: "{\\textit{"
+  selector: comment.line.number-sign.shell
+- end: "}"
+  begin: "{\\color[HTML]{BD3800}"
+  selector: keyword.other.import.java
+- end: "}"
+  begin: "{\\color[HTML]{586E75}"
+  selector: storage.modifier.import.java
+- end: "}"
+  begin: "{\\color[HTML]{A57800}"
+  selector: meta.class.java storage.modifier.java
+- end: "}"
+  begin: "{\\color[HTML]{536871}"
+  selector: source.java comment.block
+- end: "}"
+  begin: "{\\color[HTML]{536871}"
+  selector: comment.block meta.documentation.tag.param.javadoc keyword.other.documentation.param.javadoc
+- end: "}"
+  begin: "{\\color[HTML]{B58900}"
+  selector: punctuation.definition.variable.perl, variable.other.readwrite.global.perl, variable.other.predefined.perl, keyword.operator.comparison.perl
+- end: "}"
+  begin: "{\\color[HTML]{859900}"
+  selector: support.function.perl
+- end: "}}"
+  begin: "{\\color[HTML]{586E75}\\textit{"
+  selector: comment.line.number-sign.perl
+- end: "}"
+  begin: "{\\color[HTML]{2AA198}"
+  selector: punctuation.definition.string.begin.perl, punctuation.definition.string.end.perl
+- end: "}"
+  begin: "{\\color[HTML]{DC322F}"
+  selector: constant.character.escape.perl
+line: 
+  end: "}}\\\\"
+  begin: ""

@@ -1,0 +1,2 @@
+#!/bin/bash
+cp dyndoc.lang ~/.local/share/gtksourceview-2.0/language-specs/dyndoc.lang
