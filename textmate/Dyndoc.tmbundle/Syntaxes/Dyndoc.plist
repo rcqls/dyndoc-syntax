@@ -240,7 +240,7 @@
 		<key>tag_blck_out_dyn</key>
 		<dict>
 			<key>begin</key>
-			<string>(\[\#)(&lt;&lt;|&lt;|do|&gt;&gt;|&gt;|out|\\n|nl|\?|&amp;\?|tag|&amp;tag|\?\?|yield|=|\+|%)(\])</string>
+			<string>(\[\#)(&lt;&lt;|&lt;|do|&gt;&gt;|&gt;|out|\\n|nl|\?|&amp;\?|tag|&amp;tag|\?\?|yield|-&gt;|=|\+|%)(\])</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>

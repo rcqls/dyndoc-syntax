@@ -240,7 +240,7 @@
 		<key>tag_blck_out_dyn</key>
 		<dict>
 			<key>begin</key>
-			<string>(\[\#)(&lt;&lt;|&lt;|do|&gt;&gt;|&gt;|out|\\n|nl|\?|&amp;\?|tag|&amp;tag|\?\?|yield|=|\+|%)(\])</string>
+			<string>(\[\#)(&lt;&lt;|&lt;|do|&gt;&gt;|&gt;|out|\\n|nl|\?|&amp;\?|tag|&amp;tag|\?\?|yield|-&gt;|=|\+|%)(\])</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -337,6 +337,10 @@
 			<dict/>
 			<key>patterns</key>
 			<array>
+				<dict>
+					<key>include</key>
+					<string>source.r</string>
+				</dict>
       			<dict>
 					<key>include</key>
 					<string>#tag_instr_dyn</string>
@@ -349,10 +353,7 @@
 					<key>include</key>
 					<string>#include_blck_dyn</string>
 				</dict>
-				<dict>
-					<key>include</key>
-					<string>source.r</string>
-				</dict>
+				
 			</array>
 		</dict>
 		<key>tag_blck_julia_dyn</key>

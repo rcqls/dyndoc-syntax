@@ -1,34 +1,10 @@
-'.text.dyndoc':
-  'InstrBlock':
-    'prefix': '#i'
-    'body': '{#${1:instr}]$0\n[#}'
-  'InstrBlockNamed':
-    'prefix': '#ii'
-    'body': '{#${1:instr}]$0\n[#${1:instr}}'
-  'InstrBlock1':
-    'prefix': '#i1'
-    'body': '{#${1:instr}]$0[#}'
-  'InstrBlock1Named':
-    'prefix': '#ii1'
-    'body': '{#${1:instr}]$0[#${1:instr}}'
-  'InstrBeg':
-    'prefix': '#ib'
-    'body': '{#${1:instr}]$0'
-  'InstrEnd':
-    'prefix': '#ie'
-    'body': '[#${1:end}}$0'
-  'Tag':
-    'prefix': '#a'
-    'body': '[#${1:instr}]$0'
-  'Var':
-  	'prefix': '#='
-  	'body': '[#=]${1:varname}[${2:value}]$0'
-  'Case':
-  	'prefix': '#c'
-  	'body': '{#case]${1:choices}\n[#when]${2:case}[#${2:instr}]$0\n[#}'
-  'CaseNamed':
-  	'prefix': '#case'
-  	'body': '{#case]${1:choices}[#when]${2:case}[#${2:instr}]$0[#case}'
-  'When':
-  	'prefix': '#w'
-  	'body': '[#when]${1:case}[#${2:instr}]$0'
+".text.dyndoc":
+  Instr:
+    prefix: "i"
+    body: '''
+      {#${1:name}]$0
+      [#$1}
+    '''
+  Tag:
+    prefix: "a"
+    body: "[#${1:name}]"
