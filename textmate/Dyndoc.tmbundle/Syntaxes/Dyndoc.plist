@@ -30,6 +30,10 @@
 		</dict>
 		<dict>
 			<key>include</key>
+			<string>#tag_blck_asciidoctor_dyn</string>
+		</dict>
+		<dict>
+			<key>include</key>
 			<string>#tag_blck_textile_dyn</string>
 		</dict>
 		<dict>
@@ -275,13 +279,13 @@
 		</dict>
 		<key>source_r_fix_bracket_for_dyndoc</key>
 		<dict>
-    		<key>begin</key> 
+    		<key>begin</key>
     		<string>\{</string>
     		<key>beginCaptures</key>
       		<dict>
       			<key>0</key>
       			<dict>
-        			<key>name</key> 
+        			<key>name</key>
         			<string>punctuation.section.block.begin.r</string>
         		</dict>
         	</dict>
@@ -291,20 +295,20 @@
       		<dict>
       			<key>0</key>
         		<dict>
-        			<key>name</key> 
+        			<key>name</key>
         			<string>punctuation.section.block.end.r</string>
     			</dict>
     		</dict>
     		<key>name</key>
     		<string>meta.block.r</string>
-    		<key>patterns</key> 
+    		<key>patterns</key>
     			<array>
     				<dict>
     					<key>include</key>
     					<string>text.dyndoc</string>
       				</dict>
   					<dict>
-        				<key>include</key> 
+        				<key>include</key>
         				<string>source.r</string>
       				</dict>
       			</array>
@@ -466,6 +470,44 @@
 				<dict>
 					<key>include</key>
 					<string>source.gfm</string>
+				</dict>
+			</array>
+		</dict>
+		<key>tag_blck_asciidoctor_dyn</key>
+		<dict>
+			<key>begin</key>
+			<string>(\[\#)(adoc&gt;)(\])</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.tag.dyndoc</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.name.tag.dyndoc</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.tag.dyndoc</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>(?=\[\#)</string>
+			<key>endCaptures</key>
+			<dict/>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#include_blck_dyn</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>text.html.asciidoc</string>
 				</dict>
 			</array>
 		</dict>

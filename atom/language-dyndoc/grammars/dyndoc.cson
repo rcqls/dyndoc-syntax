@@ -18,6 +18,9 @@ patterns: [
     include: "#tag_blck_markdown_dyn"
   }
   {
+    include: "#tag_blck_asciidoctor_dyn"
+  }
+  {
     include: "#tag_blck_textile_dyn"
   }
   {
@@ -257,6 +260,25 @@ repository:
       }
       {
         include: "source.gfm"
+      }
+    ]
+  tag_blck_asciidoctor_dyn:
+    begin: "(\\[\\#)(adoc>)(\\])"
+    beginCaptures:
+      "1":
+        name: "punctuation.definition.tag.dyndoc"
+      "2":
+        name: "keyword.name.tag.dyndoc"
+      "3":
+        name: "punctuation.definition.tag.dyndoc"
+    end: "(?=\\[\\#)"
+    endCaptures: {}
+    patterns: [
+      {
+        include: "#include_blck_dyn"
+      }
+      {
+        include: "text.html.asciidoc"
       }
     ]
   tag_blck_textile_dyn:
