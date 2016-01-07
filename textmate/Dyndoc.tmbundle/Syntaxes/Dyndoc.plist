@@ -507,7 +507,7 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>text.html.asciidoc</string>
+					<string>source.asciidoc</string>
 				</dict>
 			</array>
 		</dict>

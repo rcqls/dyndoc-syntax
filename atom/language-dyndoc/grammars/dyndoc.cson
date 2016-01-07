@@ -278,7 +278,7 @@ repository:
         include: "#include_blck_dyn"
       }
       {
-        include: "text.html.asciidoc"
+        include: "source.asciidoc"
       }
     ]
   tag_blck_textile_dyn:
