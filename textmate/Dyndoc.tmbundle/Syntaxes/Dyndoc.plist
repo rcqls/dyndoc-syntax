@@ -442,7 +442,7 @@
 		<key>tag_blck_tex_dyn</key>
 		<dict>
 			<key>begin</key>
-			<string>(\[\#)(tex&gt;|tex=|tex\+)(\])</string>
+			<string>(\[\#)(tex&gt;|ttm&gt;|tex=|tex\+)(\])</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>

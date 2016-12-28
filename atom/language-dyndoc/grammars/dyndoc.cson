@@ -15,6 +15,9 @@ patterns: [
     include: "#tag_blck_ruby_dyn"
   }
   {
+    include: "#tag_blck_tex_dyn"
+  }
+  {
     include: "#tag_blck_markdown_dyn"
   }
   {
@@ -181,7 +184,7 @@ repository:
       }
     ]
   tag_blck_r_dyn:
-    begin: "(\\[\\#)(r<|R<|r>|R>|r>>|R>>|rverb)(\\])"
+    begin: "(\\[\\#)(r<|R<|r>|R>|r>>|R>>|rverb|R=|R\\+)(\\])"
     beginCaptures:
       "1":
         name: "punctuation.definition.tag.dyndoc"
@@ -206,7 +209,7 @@ repository:
       }
     ]
   tag_blck_julia_dyn:
-    begin: "(\\[\\#)(jl<|jl>|jl>>)(\\])"
+    begin: "(\\[\\#)(jl<|jl>|jl>>|jl=|jl\\+)(\\])"
     beginCaptures:
       "1":
         name: "punctuation.definition.tag.dyndoc"
@@ -225,7 +228,7 @@ repository:
       }
     ]
   tag_blck_ruby_dyn:
-    begin: "(\\[\\#)(rb<|rb>|rb>>)(\\])"
+    begin: "(\\[\\#)(rb<|rb>|rb>>|rb=|rb\\+)(\\])"
     beginCaptures:
       "1":
         name: "punctuation.definition.tag.dyndoc"
@@ -243,8 +246,27 @@ repository:
         include: "source.ruby"
       }
     ]
+  tag_blck_tex_dyn:
+    begin: "(\\[\\#)(tex>|ttm>|tex=|tex\\+)(\\])"
+    beginCaptures:
+      "1":
+        name: "punctuation.definition.tag.dyndoc"
+      "2":
+        name: "keyword.name.tag.dyndoc"
+      "3":
+        name: "punctuation.definition.tag.dyndoc"
+    end: "(?=\\[\\#)"
+    endCaptures: {}
+    patterns: [
+      {
+        include: "#include_blck_dyn"
+      }
+      {
+        include: "text.tex.latex"
+      }
+    ]
   tag_blck_markdown_dyn:
-    begin: "(\\[\\#)(md>)(\\])"
+    begin: "(\\[\\#)(md>|md=|md\\+)(\\])"
     beginCaptures:
       "1":
         name: "punctuation.definition.tag.dyndoc"
@@ -263,7 +285,7 @@ repository:
       }
     ]
   tag_blck_asciidoctor_dyn:
-    begin: "(\\[\\#)(adoc>)(\\])"
+    begin: "(\\[\\#)(adoc>|adoc=|adoc\\+)(\\])"
     beginCaptures:
       "1":
         name: "punctuation.definition.tag.dyndoc"
@@ -282,7 +304,7 @@ repository:
       }
     ]
   tag_blck_textile_dyn:
-    begin: "(\\[\\#)(txtl>)(\\])"
+    begin: "(\\[\\#)(txtl>|txtl=|txtl\\+)(\\])"
     beginCaptures:
       "1":
         name: "punctuation.definition.tag.dyndoc"
