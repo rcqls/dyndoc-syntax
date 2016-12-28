@@ -26,6 +26,10 @@
 		</dict>
 		<dict>
 			<key>include</key>
+			<string>#tag_blck_tex_dyn</string>
+		</dict>
+		<dict>
+			<key>include</key>
 			<string>#tag_blck_markdown_dyn</string>
 		</dict>
 		<dict>
@@ -316,7 +320,7 @@
 		<key>tag_blck_r_dyn</key>
 		<dict>
 			<key>begin</key>
-			<string>(\[\#)(r&lt;|R&lt;|r&gt;|R&gt;|r&gt;&gt;|R&gt;&gt;|rverb)(\])</string>
+			<string>(\[\#)(r&lt;|R&lt;|r&gt;|R&gt;|r&gt;&gt;|R&gt;&gt;|rverb|R=|R\+)(\])</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -362,7 +366,7 @@
 		<key>tag_blck_julia_dyn</key>
 		<dict>
 			<key>begin</key>
-			<string>(\[\#)(jl&lt;|jl&gt;|jl&gt;&gt;)(\])</string>
+			<string>(\[\#)(jl&lt;|jl&gt;|jl&gt;&gt;|jl=|jl\+)(\])</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -400,7 +404,7 @@
 		<key>tag_blck_ruby_dyn</key>
 		<dict>
 			<key>begin</key>
-			<string>(\[\#)(rb&lt;|rb&gt;|rb&gt;&gt;)(\])</string>
+			<string>(\[\#)(rb&lt;|rb&gt;|rb&gt;&gt;|rb=|rb\+)(\])</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -435,10 +439,48 @@
 				</dict>
 			</array>
 		</dict>
+		<key>tag_blck_tex_dyn</key>
+		<dict>
+			<key>begin</key>
+			<string>(\[\#)(tex&gt;|tex=|tex\+)(\])</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.tag.dyndoc</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.name.tag.dyndoc</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.tag.dyndoc</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>(?=\[\#)</string>
+			<key>endCaptures</key>
+			<dict/>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#include_blck_dyn</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>text.tex.latex</string>
+				</dict>
+			</array>
+		</dict>
 		<key>tag_blck_markdown_dyn</key>
 		<dict>
 			<key>begin</key>
-			<string>(\[\#)(md&gt;)(\])</string>
+			<string>(\[\#)(md&gt;|md=|md\+)(\])</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -476,7 +518,7 @@
 		<key>tag_blck_asciidoctor_dyn</key>
 		<dict>
 			<key>begin</key>
-			<string>(\[\#)(adoc&gt;)(\])</string>
+			<string>(\[\#)(adoc&gt;|adoc=|adoc\+)(\])</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -514,7 +556,7 @@
 		<key>tag_blck_textile_dyn</key>
 		<dict>
 			<key>begin</key>
-			<string>(\[\#)(txtl&gt;)(\])</string>
+			<string>(\[\#)(txtl&gt;|txtl=|txtl\+)(\])</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
