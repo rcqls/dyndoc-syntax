@@ -4,14 +4,16 @@
 <dict>
 	<key>fileTypes</key>
 	<array>
-		<string>dyn</string>
-		<string>dyn_tex</string>
-		<string>dyn_html</string>
+		<string>dyn_rmd</string>
 	</array>
 	<key>name</key>
-	<string>Dyndoc</string>
+	<string>DyndocRmd</string>
 	<key>patterns</key>
 	<array>
+		<dict>
+			<key>include</key>
+			<string>#tag_blck_r_dyn</string>
+		</dict>
 		<dict>
 			<key>include</key>
 			<string>#tag_blck_r_dyn</string>
@@ -87,6 +89,10 @@
 		<dict>
 			<key>include</key>
 			<string>#extract_r_dyn</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>source.gfm</string>
 		</dict>
 	</array>
 	<key>repository</key>
@@ -320,7 +326,7 @@
 		<key>tag_blck_out_dyn</key>
 		<dict>
 			<key>begin</key>
-			<string>(\[\#)(&lt;&lt;|&lt;|do|&gt;&gt;|&gt;|out|\\n|nl|\?|&amp;\?|tag|&amp;tag|\?\?|yield|-&gt;|=|\+|%)(\])</string>
+			<string>(\[\#)(&lt;&lt;|&lt;|do|&gt;&gt;|\\n|nl|\?|&amp;\?|tag|&amp;tag|\?\?|yield|-&gt;|=|\+|%)(\])</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -552,7 +558,7 @@
 		<key>tag_blck_markdown_dyn</key>
 		<dict>
 			<key>begin</key>
-			<string>(\[\#)(md&gt;|md=|md\+)(\])</string>
+			<string>(\[\#)(&gt;|out|md&gt;|md=|md\+)(\])</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -1012,8 +1018,8 @@
 		</dict>
 	</dict>
 	<key>scopeName</key>
-	<string>text.dyndoc</string>
+	<string>text.dyndoc.rmd</string>
 	<key>uuid</key>
-	<string>4CA84C94-5555-431F-AC2B-250BAD9E27AB</string>
+	<string>10D4349A-6423-49AC-B7ED-6D3DBFCC1092</string>
 </dict>
 </plist>
