@@ -1,7 +1,7 @@
 fileTypes: [
-  "dyn_rmd"
+  "dyn_adoc"
 ]
-name: "DyndocRmd"
+name: "DyndocAdoc"
 patterns: [
   {
     include: "#tag_blck_r_dyn"
@@ -64,7 +64,7 @@ patterns: [
     include: "#extract_r_dyn"
   }
   {
-    include: "source.gfm"
+    include: "source.asciidoc"
   }
 ]
 repository:
@@ -312,7 +312,7 @@ repository:
       }
     ]
   tag_blck_markdown_dyn:
-    begin: "(\\[\\#)(>|out|md>|md=|md\\+)(\\])"
+    begin: "(\\[\\#)(md>|md=|md\\+)(\\])"
     beginCaptures:
       "1":
         name: "punctuation.definition.tag.dyndoc"
@@ -331,7 +331,7 @@ repository:
       }
     ]
   tag_blck_asciidoctor_dyn:
-    begin: "(\\[\\#)(adoc>|adoc=|adoc\\+)(\\])"
+    begin: "(\\[\\#)(>|out|adoc>|adoc=|adoc\\+)(\\])"
     beginCaptures:
       "1":
         name: "punctuation.definition.tag.dyndoc"
@@ -525,4 +525,4 @@ repository:
       "3":
         name: "punctuation.definition.tag.dyndoc"
     match: "(\\{\\#)([A-Za-z_][\\w.:_\\-\\|]*[=?!>]?)(\\#\\})"
-scopeName: "text.dyndoc.rmd"
+scopeName: "text.dyndoc.adoc"

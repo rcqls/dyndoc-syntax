@@ -56,10 +56,16 @@ patterns: [
   {
     include: "#extract_dyn"
   }
+  {
+    include: "#extract_rb_dyn"
+  }
+  {
+    include: "#extract_r_dyn"
+  }
 ]
 repository:
   extract_dyn:
-    begin: "(?:\\#|\\#\\#|\\@|\\#F|\\#R|\\#r|\\:R|\\:r|\\#Rb|\\#rb|\\:|\\:Rb|\\:rb)\\{"
+    begin: "(?:\\#|\\#\\#|\\@|\\#F)\\{"
     captures:
       "0":
         name: "comment.line"
@@ -68,6 +74,42 @@ repository:
     patterns: [
       {
         include: "#extract_dyn"
+      }
+    ]
+  extract_rb_dyn:
+    begin: "(?:\\#Rb|\\#rb|\\:|\\:Rb|\\:rb)\\{"
+    captures:
+      "0":
+        name: "comment.line"
+    contentName: "variable.other.dyndoc"
+    end: "\\}"
+    patterns: [
+      {
+        include: "#extract_dyn"
+      }
+      {
+        include: "#extract_r_dyn"
+      }
+      {
+        include: "source.ruby"
+      }
+    ]
+  extract_r_dyn:
+    begin: "(?:\\#R|\\#r|\\:R|\\:r)\\{"
+    captures:
+      "0":
+        name: "comment.line"
+    contentName: "variable.other.dyndoc"
+    end: "\\}"
+    patterns: [
+      {
+        include: "#extract_dyn"
+      }
+      {
+        include: "#extract_rb_dyn"
+      }
+      {
+        include: "source.r"
       }
     ]
   format_blck:
