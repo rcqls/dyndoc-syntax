@@ -1,0 +1,3 @@
+## From the current folder:
+plist2yaml ../textmate/rebol-tmbundle/Syntaxes/rebol.tmLanguage > syntax/source.rebol.syntax
+plist2yaml ../textmate/Julia.tmbundle/Syntaxes/Julia.tmLanguage > syntax/source.julia.syntax
