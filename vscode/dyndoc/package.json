@@ -1,0 +1,30 @@
+{
+    "name": "dyndoc",
+    "displayName": "dyndoc",
+    "description": "dyndoc syntax",
+    "version": "0.0.1",
+    "publisher": "rcqls",
+    "engines": {
+        "vscode": "^1.10.0"
+    },
+    "categories": [
+        "Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "dyndoc",
+            "aliases": ["dyndoc", "dyndoc"],
+            "extensions": [".dyn"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "dyndoc",
+            "scopeName": "text.dyndoc",
+            "path": "./syntaxes/dyndoc.tmLanguage.json"
+        }],
+        "snippets": [{
+            "language": "dyndoc",
+            "path": "./snippets/dyndoc.json"
+        }]
+    }
+}
