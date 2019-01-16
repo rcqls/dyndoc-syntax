@@ -417,6 +417,14 @@
 			<dict/>
 			<key>patterns</key>
 			<array>
+				<dict>
+					<key>include</key>
+					<string>#extract_dyn</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#extract_rb_dyn</string>
+				</dict>
       			<dict>
 					<key>include</key>
 					<string>#tag_instr_dyn</string>

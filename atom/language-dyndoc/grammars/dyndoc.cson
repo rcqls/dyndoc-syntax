@@ -238,6 +238,12 @@ repository:
     endCaptures: {}
     patterns: [
       {
+        include: "#extract_dyn"
+      }
+      {
+        include: "#extract_rb_dyn"
+      }
+      {
         include: "#tag_instr_dyn"
       }
       {

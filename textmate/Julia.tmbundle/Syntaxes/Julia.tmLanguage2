@@ -244,7 +244,7 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>\b(?:function|stagedfunction|type|struct|immutable|macro|quote|abstract|bitstype|typealias|module|baremodule|new)\b</string>
+					<string>\b(?:function|stagedfunction|type|immutable|macro|quote|abstract|bitstype|typealias|module|baremodule|new)\b</string>
 					<key>name</key>
 					<string>keyword.other.julia</string>
 				</dict>
@@ -611,7 +611,7 @@
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>(struct|mutable struct)\s+(\w+)(\s*(&lt;:)\s*\w+(?:{.*})?)?</string>
+					<string>(type|immutable)\s+(\w+)(\s*(&lt;:)\s*\w+(?:{.*})?)?</string>
 					<key>name</key>
 					<string>meta.type.julia</string>
 				</dict>
