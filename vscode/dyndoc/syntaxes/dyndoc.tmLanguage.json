@@ -16,6 +16,9 @@
       "include": "#tag_blck_ruby_dyn"
     },
     {
+      "include": "#tag_blck_sh_dyn"
+    },
+    {
       "include": "#tag_blck_tex_dyn"
     },
     {
@@ -341,6 +344,30 @@
         },
         {
           "include": "source.ruby"
+        }
+      ]
+    },
+    "tag_blck_sh_dyn": {
+      "begin": "(\\[\\#)(sh<)(\\])",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.definition.tag.dyndoc"
+        },
+        "2": {
+          "name": "keyword.name.tag.dyndoc"
+        },
+        "3": {
+          "name": "punctuation.definition.tag.dyndoc"
+        }
+      },
+      "end": "(?=\\[\\#)",
+      "endCaptures": {},
+      "patterns": [
+        {
+          "include": "#include_blck_dyn"
+        },
+        {
+          "include": "source.shell"
         }
       ]
     },
