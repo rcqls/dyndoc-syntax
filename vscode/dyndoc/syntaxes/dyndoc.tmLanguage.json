@@ -69,7 +69,7 @@
   ],
   "repository": {
     "extract_dyn": {
-      "begin": "(?:\\#|\\#\\#|\\@|\\#F)\\{",
+      "begin": "(?:\\#|\\%|\\#\\#|\\@|\\#F)\\{",
       "captures": {
         "0": {
           "name": "comment.line"
@@ -156,7 +156,7 @@
               "name": "constant"
             }
           },
-          "match": "(\\])\\s*(?=\\[\\#)"
+          "match": "(\\])\\s*(?=\\[\\#|\\[\\%)"
         }
       ]
     },
@@ -183,7 +183,7 @@
       ]
     },
     "tag_blck_dyn": {
-      "begin": "(\\[\\#)([.A-Za-z_\\,][\\w._\\-]*)(\\])",
+      "begin": "(\\[\\#|\\[\\%)([.A-Za-z_\\,][\\w._\\-]*)(\\])",
       "beginCaptures": {
         "1": {
           "name": "punctuation.definition.tag.dyndoc"
@@ -195,7 +195,7 @@
           "name": "punctuation.definition.tag.dyndoc"
         }
       },
-      "end": "(?=\\[\\#)",
+      "end": "(?=\\[\\#|\\[\\%)",
       "endCaptures": {},
       "patterns": [
         {
@@ -219,7 +219,7 @@
       ]
     },
     "tag_blck_out_dyn": {
-      "begin": "(\\[\\#)(<<|<|do|>>|>|out|\\\\n|nl|\\?|&\\?|tag|&tag|\\?\\?|yield|->|=|\\+|%)(\\])",
+      "begin": "(\\[\\#|\\[\\%)(<<|<|do|>>|>|out|\\\\n|nl|\\?|&\\?|tag|&tag|\\?\\?|yield|->|=|\\+|%)(\\])",
       "beginCaptures": {
         "1": {
           "name": "punctuation.definition.tag.dyndoc"
@@ -232,7 +232,7 @@
         }
       },
       "contentName": "markup.deleted",
-      "end": "(?=\\[\\#)",
+      "end": "(?=\\[\\#|\\[\\%)",
       "endCaptures": {},
       "patterns": [
         {
@@ -264,7 +264,7 @@
       ]
     },
     "tag_blck_r_dyn": {
-      "begin": "(\\[\\#)(r<|R<|r>|R>|r>>|R>>|rverb|R=|R\\+)(\\])",
+      "begin": "(\\[(?:\\#|\\%))(r<|R<|r>|R>|r>>|R>>|rverb|R=|R\\+)(\\])(?:\\s*(\\[))",
       "beginCaptures": {
         "1": {
           "name": "punctuation.definition.tag.dyndoc"
@@ -274,10 +274,17 @@
         },
         "3": {
           "name": "punctuation.definition.tag.dyndoc"
+        },
+        "4": {
+          "name": "constant"
         }
       },
-      "end": "(?=\\[\\#)",
-      "endCaptures": {},
+      "end": "\\]?(?=\\s*?\\[(?:\\#|\\%)[^\\#\\%]*\\])",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.tag.dyndoc"
+        }
+      },
       "patterns": [
         {
           "include": "#extract_dyn"
@@ -300,7 +307,7 @@
       ]
     },
     "tag_blck_julia_dyn": {
-      "begin": "(\\[\\#)(jl<|jl>|jl>>|jl=|jl\\+)(\\])",
+      "begin": "(\\[\\#|\\[\\%)(jl<|jl>|jl>>|jl=|jl\\+)(\\])",
       "beginCaptures": {
         "1": {
           "name": "punctuation.definition.tag.dyndoc"
@@ -312,7 +319,7 @@
           "name": "punctuation.definition.tag.dyndoc"
         }
       },
-      "end": "(?=\\[\\#)",
+      "end": "(?=\\[\\#|\\[\\%)",
       "endCaptures": {},
       "patterns": [
         {
@@ -324,7 +331,7 @@
       ]
     },
     "tag_blck_ruby_dyn": {
-      "begin": "(\\[\\#)(rb<|rb>|rb>>|rb=|rb\\+)(\\])",
+      "begin": "(\\[\\#|\\[\\%)(rb<|rb>|rb>>|rb=|rb\\+)(\\])",
       "beginCaptures": {
         "1": {
           "name": "punctuation.definition.tag.dyndoc"
@@ -336,7 +343,7 @@
           "name": "punctuation.definition.tag.dyndoc"
         }
       },
-      "end": "(?=\\[\\#)",
+      "end": "(?=\\[\\#|\\[\\%)",
       "endCaptures": {},
       "patterns": [
         {
@@ -348,7 +355,7 @@
       ]
     },
     "tag_blck_sh_dyn": {
-      "begin": "(\\[\\#)(sh<)(\\])",
+      "begin": "(\\[\\#|\\[\\%)(sh<)(\\])",
       "beginCaptures": {
         "1": {
           "name": "punctuation.definition.tag.dyndoc"
@@ -360,7 +367,7 @@
           "name": "punctuation.definition.tag.dyndoc"
         }
       },
-      "end": "(?=\\[\\#)",
+      "end": "(?=\\[\\#|\\[\\%)",
       "endCaptures": {},
       "patterns": [
         {
@@ -372,7 +379,7 @@
       ]
     },
     "tag_blck_tex_dyn": {
-      "begin": "(\\[\\#)(tex>|ttm>|tex=|tex\\+)(\\])",
+      "begin": "(\\[\\#|\\[\\%)(tex>|ttm>|tex=|tex\\+)(\\])",
       "beginCaptures": {
         "1": {
           "name": "punctuation.definition.tag.dyndoc"
@@ -384,7 +391,7 @@
           "name": "punctuation.definition.tag.dyndoc"
         }
       },
-      "end": "(?=\\[\\#)",
+      "end": "(?=\\[\\#|\\[\\%)",
       "endCaptures": {},
       "patterns": [
         {
@@ -396,7 +403,7 @@
       ]
     },
     "tag_blck_markdown_dyn": {
-      "begin": "(\\[\\#)(md>|md=|md\\+)(\\])",
+      "begin": "(\\[\\#|\\[\\%)(md>|md=|md\\+)(\\])",
       "beginCaptures": {
         "1": {
           "name": "punctuation.definition.tag.dyndoc"
@@ -408,7 +415,7 @@
           "name": "punctuation.definition.tag.dyndoc"
         }
       },
-      "end": "(?=\\[\\#)",
+      "end": "(?=\\[\\#|\\[\\%)",
       "endCaptures": {},
       "patterns": [
         {
@@ -420,7 +427,7 @@
       ]
     },
     "tag_blck_asciidoctor_dyn": {
-      "begin": "(\\[\\#)(adoc>|adoc=|adoc\\+)(\\])",
+      "begin": "(\\[\\#|\\[\\%)(adoc>|adoc=|adoc\\+)(\\])",
       "beginCaptures": {
         "1": {
           "name": "punctuation.definition.tag.dyndoc"
@@ -432,7 +439,7 @@
           "name": "punctuation.definition.tag.dyndoc"
         }
       },
-      "end": "(?=\\[\\#)",
+      "end": "(?=\\[\\#|\\[\\%)",
       "endCaptures": {},
       "patterns": [
         {
@@ -444,7 +451,7 @@
       ]
     },
     "tag_blck_textile_dyn": {
-      "begin": "(\\[\\#)(txtl>|txtl=|txtl\\+)(\\])",
+      "begin": "(\\[\\#|\\[\\%)(txtl>|txtl=|txtl\\+)(\\])",
       "beginCaptures": {
         "1": {
           "name": "punctuation.definition.tag.dyndoc"
@@ -456,7 +463,7 @@
           "name": "punctuation.definition.tag.dyndoc"
         }
       },
-      "end": "(?=\\[\\#)",
+      "end": "(?=\\[\\#|\\[\\%)",
       "endCaptures": {},
       "patterns": [
         {
@@ -468,7 +475,7 @@
       ]
     },
     "tag_blck_html_dyn": {
-      "begin": "(\\[\\#)(html>)(\\])",
+      "begin": "(\\[\\#|\\[\\%)(html>)(\\])",
       "beginCaptures": {
         "1": {
           "name": "punctuation.definition.tag.dyndoc"
@@ -480,7 +487,7 @@
           "name": "punctuation.definition.tag.dyndoc"
         }
       },
-      "end": "(?=\\[\\#)",
+      "end": "(?=\\[\\#|\\[\\%)",
       "endCaptures": {},
       "patterns": [
         {
@@ -492,7 +499,7 @@
       ]
     },
     "tag_blck_var_dyn": {
-      "begin": "(\\[\\#)(>>|>|=)(\\])",
+      "begin": "(\\[\\#|\\[\\%)(>>|>|=)(\\])",
       "beginCaptures": {
         "1": {
           "name": "punctuation.definition.tag.dyndoc"
@@ -505,7 +512,7 @@
         }
       },
       "contentName": "markup.inserted",
-      "end": "(?=\\[\\#)",
+      "end": "(?=\\[\\#|\\[\\%)",
       "patterns": [
         {
           "include": "#format_blck"
@@ -516,19 +523,22 @@
       ]
     },
     "tag_instr_dyn": {
-      "begin": "(\\{\\#)(input|require|hide|txt|code|>|<|<<|verb|if|unless|loop|case|var|set|def|func|meth|new|super|do|out|blck|>>|call|renv|rverb|eval|ifndef|tags|opt|document|yield|keys)(])",
+      "begin": "(\\{((?:\\#|\\%)))(input|require|hide|txt|code|>|<|<<|verb|if|unless|loop|case|var|set|def|func|meth|new|super|do|out|blck|>>|call|renv|rverb|eval|ifndef|tags|opt|document|yield|keys)(])",
       "beginCaptures": {
         "1": {
           "name": "punctuation.definition.tag.dyndoc"
         },
         "2": {
-          "name": "keyword.name.tag.dyndoc"
+          "name": "punctuation.definition.tag.dyndoc"
         },
         "3": {
+          "name": "keyword.name.tag.dyndoc"
+        },
+        "4": {
           "name": "punctuation.definition.tag.dyndoc"
         }
       },
-      "end": "(\\[\\#)(\\2)?(?:(-)(.*))?(\\})",
+      "end": "(\\[\\2)(\\3)?(?:(-)(.*))?(\\})",
       "endCaptures": {
         "1": {
           "name": "punctuation.definition.tag.dyndoc"
@@ -553,19 +563,22 @@
       ]
     },
     "tag_r_dyn": {
-      "begin": "(\\{\\#)(r|R>|R<|R|r>>|R>>|rverb)(])",
+      "begin": "(\\{((?:\\#|\\%)))(r|R>|R<|R|r>>|R>>|rverb)(])",
       "beginCaptures": {
         "1": {
           "name": "punctuation.definition.tag.dyndoc"
         },
         "2": {
-          "name": "keyword.name.tag.dyndoc"
+          "name": "punctuation.definition.tag.dyndoc"
         },
         "3": {
+          "name": "keyword.name.tag.dyndoc"
+        },
+        "4": {
           "name": "punctuation.definition.tag.dyndoc"
         }
       },
-      "end": "(\\[\\#)(\\2)?(?:(\\-)(.*))?(\\})",
+      "end": "(\\[\\2)(\\3)?(?:(\\-)(.*))?(\\})",
       "endCaptures": {
         "1": {
           "name": "punctuation.definition.tag.dyndoc"
@@ -593,19 +606,22 @@
       ]
     },
     "tag_ruby_dyn": {
-      "begin": "(\\{\\#)(rb(?:>)?)(])",
+      "begin": "(\\{((?:\\#|\\%)))(rb(?:>)?)(])",
       "beginCaptures": {
         "1": {
           "name": "punctuation.definition.tag.dyndoc"
         },
         "2": {
-          "name": "keyword.name.tag.dyndoc"
+          "name": "punctuation.definition.tag.dyndoc"
         },
         "3": {
+          "name": "keyword.name.tag.dyndoc"
+        },
+        "4": {
           "name": "punctuation.definition.tag.dyndoc"
         }
       },
-      "end": "(\\[\\#)(\\2)?(?:(\\-)(.*))?(\\})",
+      "end": "(\\[\\2)(\\3)?(?:(\\-)(.*))?(\\})",
       "endCaptures": {
         "1": {
           "name": "punctuation.definition.tag.dyndoc"
@@ -633,19 +649,22 @@
       ]
     },
     "tag_user_dyn": {
-      "begin": "(\\{\\#)([A-Za-z_][\\w.:_\\-\\|]*[=?!>]?)(\\])",
+      "begin": "(\\{((?:\\#|\\%)))([A-Za-z_][\\w.:_\\-\\|]*[=?!>]?)(\\])",
       "beginCaptures": {
         "1": {
           "name": "punctuation.definition.tag.dyndoc"
         },
         "2": {
-          "name": "entity.name.tag.dyndoc"
+          "name": "punctuation.definition.tag.dyndoc"
         },
         "3": {
+          "name": "entity.name.tag.dyndoc"
+        },
+        "4": {
           "name": "punctuation.definition.tag.dyndoc"
         }
       },
-      "end": "(\\[\\#)(\\2)?(?:(-)(.*))?(\\})",
+      "end": "(\\[\\2)(\\3)?(?:(-)(.*))?(\\})",
       "endCaptures": {
         "1": {
           "name": "punctuation.definition.tag.dyndoc"
@@ -681,7 +700,7 @@
           "name": "punctuation.definition.tag.dyndoc"
         }
       },
-      "match": "(\\{\\#)([A-Za-z_][\\w.:_\\-\\|]*[=?!>]?)(\\#\\})"
+      "match": "(\\{\\#|\\{\\%)([A-Za-z_][\\w.:_\\-\\|]*[=?!>]?)(\\#\\}|\\%\\})"
     }
   },
   "scopeName": "text.dyndoc"
